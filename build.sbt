@@ -40,9 +40,10 @@ lazy val http4sVersion = "0.20.0-RC1"
 lazy val circeVersion = "0.11.1"
 lazy val pureConfigVersion =  "0.10.2"
 
+lazy val zioSqsVersion = "0.1.1"
 lazy val fuuidVersion = "0.2.0-M8"
 lazy val scalaTestVersion = "3.0.0"
-lazy val zioSqsVersion = "0.1.1"
+lazy val alpakkaVersion = "1.0.0"
 
 // Dependencies
 
@@ -77,5 +78,6 @@ libraryDependencies += "io.chrisdavenport" %% "fuuid" % fuuidVersion
 
 libraryDependencies += "org.scalatest" %% "scalatest" % scalaTestVersion
 
+libraryDependencies += "com.lightbend.akka" %% "akka-stream-alpakka-sqs" % alpakkaVersion
 
 
