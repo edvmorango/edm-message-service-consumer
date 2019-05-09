@@ -34,3 +34,48 @@ scalacOptions ++= Seq(
   "-Ywarn-value-discard"
 )
 
+
+lazy val zioVersion =  "1.0-RC4"
+lazy val http4sVersion = "0.20.0-RC1"
+lazy val circeVersion = "0.11.1"
+lazy val pureConfigVersion =  "0.10.2"
+
+lazy val fuuidVersion = "0.2.0-M8"
+lazy val scalaTestVersion = "3.0.0"
+lazy val zioSqsVersion = "0.1.1"
+
+// Dependencies
+
+libraryDependencies ++=  Seq(
+  "org.scalaz" %% "scalaz-zio",
+  "org.scalaz" %% "scalaz-zio-interop-shared",
+  "org.scalaz" %% "scalaz-zio-interop-cats"
+).map(_ % zioVersion)
+
+libraryDependencies ++= Seq(
+  "org.http4s" %% "http4s-dsl",
+  "org.http4s" %% "http4s-circe",
+  "org.http4s" %% "http4s-blaze-server"
+).map(_ % http4sVersion)
+
+libraryDependencies ++= Seq(
+  "io.circe" %% "circe-core",
+  "io.circe" %% "circe-generic",
+  "io.circe" %% "circe-generic-extras",
+  "io.circe" %% "circe-parser"
+).map(_ % circeVersion)
+
+
+libraryDependencies ++= Seq(
+  "com.github.pureconfig" %% "pureconfig",
+  "com.github.pureconfig" %% "pureconfig-yaml"
+).map(_ % pureConfigVersion)
+
+libraryDependencies += "dev.zio" %% "zio-sqs" %  zioSqsVersion
+
+libraryDependencies += "io.chrisdavenport" %% "fuuid" % fuuidVersion
+
+libraryDependencies += "org.scalatest" %% "scalatest" % scalaTestVersion
+
+
+
