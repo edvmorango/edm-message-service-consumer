@@ -2,9 +2,11 @@ package app
 
 import config.ConfigLoader
 import effects.Logger
+import effects.consumer.SQSClient
 import scalaz.zio.clock.Clock
 import scalaz.zio.console.putStrLn
-import scalaz.zio.{App, TaskR, ZIO}
+import scalaz.zio.{App, TaskR, UIO, ZIO}
+import zio.sqs.SqsStream
 
 object Main extends App {
 
@@ -15,7 +17,12 @@ object Main extends App {
   def run(args: List[String]): ZIO[Main.Environment, Nothing, Int] = {
 
     val program = for {
-      _ <- ZIO.fromEither(ConfigLoader.load)
+      cfg <- ZIO.fromEither(ConfigLoader.load)
+
+      _ <- SqsStream(SQSClient.instantiate(cfg.aws.sqs),
+                     cfg.queues.userMessageEvent).foreach(msg =>
+        UIO(println(msg)))
+
     } yield ()
 
     program.foldM(e => putStrLn(e.getMessage) *> ZIO.succeed(1),

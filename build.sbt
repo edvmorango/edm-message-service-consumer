@@ -78,6 +78,5 @@ libraryDependencies += "io.chrisdavenport" %% "fuuid" % fuuidVersion
 
 libraryDependencies += "org.scalatest" %% "scalatest" % scalaTestVersion
 
-libraryDependencies += "com.lightbend.akka" %% "akka-stream-alpakka-sqs" % alpakkaVersion
 
 
