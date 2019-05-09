@@ -1,0 +1,17 @@
+app:
+  host: localhost
+  context: /message-consumer/v1
+  port: 8082
+
+aws:
+  sqs:
+    prefix: dev
+    region: us-east-1
+    host: 0.0.0.0
+    port: 9324
+    access-key: access-key
+    secret-key: secret-key
+
+
+queues:
+  user-message-event: http://sqs:9324/queue/user_message_queue
