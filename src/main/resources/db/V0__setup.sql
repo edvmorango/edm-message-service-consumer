@@ -1,4 +1,4 @@
-create table message (
+create table user_message (
     uuid UUID PRIMARY KEY,
     message text,
     sender_uuid UUID,

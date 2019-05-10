@@ -41,6 +41,7 @@ lazy val circeVersion = "0.11.1"
 lazy val pureConfigVersion =  "0.10.2"
 
 lazy val doobieVersion = "0.7.0-M5"
+lazy val doobiePostgres = "0.6.0"
 lazy val zioSqsVersion = "0.1.1"
 lazy val fuuidVersion = "0.2.0-M8"
 lazy val scalaTestVersion = "3.0.0"
@@ -75,6 +76,8 @@ libraryDependencies ++= Seq(
 
 
 libraryDependencies += "org.tpolecat" % "doobie-core_2.12" % doobieVersion
+
+libraryDependencies += "org.tpolecat" %% "doobie-postgres"  % doobiePostgres
 
 libraryDependencies += "dev.zio" %% "zio-sqs" %  zioSqsVersion
 
