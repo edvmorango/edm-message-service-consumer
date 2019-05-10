@@ -15,3 +15,9 @@ aws:
 
 queues:
   user-message-event: http://sqs:9324/queue/user_message_queue
+
+database:
+  driver: org.postgresql.Driver
+  url: jdbc:postgresql://localhost/edm_database
+  user: edm_user
+  password: edm@123

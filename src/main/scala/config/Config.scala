@@ -1,10 +1,18 @@
 package config
 
-final case class Config(app: AppConfig, aws: AWSConfig, queues: QueuesConfig)
+final case class Config(app: AppConfig,
+                        aws: AWSConfig,
+                        queues: QueuesConfig,
+                        database: DatabaseConfig)
 
 final case class AppConfig(host: String, context: String, port: Int)
 
 final case class AWSConfig(sqs: SqsConfig)
+
+final case class DatabaseConfig(driver: String,
+                                url: String,
+                                user: String,
+                                password: String)
 
 final case class SqsConfig(prefix: String,
                            region: String,

@@ -7,5 +7,5 @@ create table user_message (
     peer_payload JSON,
     send_date TIMESTAMP,
     created_at TIMESTAMP,
-    update_at TIMESTAMP
+    updated_at TIMESTAMP
 )
