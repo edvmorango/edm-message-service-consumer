@@ -4,13 +4,13 @@ import domain.MessageSent
 import doobie.util.transactor.Transactor
 import scalaz.zio.{Task, ZIO}
 
-trait UserMessageRepository {
+trait MessageRepository {
 
-  val userMessageRepository: UserMessageRepository.Effect
+  val messageRepository: MessageRepository.Effect
 
 }
 
-object UserMessageRepository {
+object MessageRepository {
 
   trait Effect {
 
@@ -20,8 +20,8 @@ object UserMessageRepository {
 
 }
 
-class UserMessageRepositoryDoobie(xa: Transactor[Task])
-    extends UserMessageRepository.Effect {
+class MessageRepositoryDoobie(xa: Transactor[Task])
+    extends MessageRepository.Effect {
 
   import doobie.implicits._
   import io.circe.generic.auto._
