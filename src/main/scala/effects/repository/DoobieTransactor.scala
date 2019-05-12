@@ -5,6 +5,7 @@ import doobie.util.transactor.Transactor
 import doobie.util.transactor.Transactor.Aux
 import scalaz.zio.Task
 import scalaz.zio.interop.catz._
+import doobie._
 
 object DoobieTransactor {
 

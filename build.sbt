@@ -80,7 +80,7 @@ libraryDependencies += "org.tpolecat" % "doobie-core_2.12" % doobieVersion
 
 libraryDependencies += "org.tpolecat" %% "doobie-postgres"  % doobiePostgresVersion
 
-libraryDependencies += "org.tpolecat" %% "doobie-contrib-postgresql" % doobieContribPostgresVersion
+libraryDependencies += "org.postgresql" % "postgresql" % "42.2.5"
 
 libraryDependencies += "dev.zio" %% "zio-sqs" %  zioSqsVersion
 
