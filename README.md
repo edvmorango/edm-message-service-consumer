@@ -4,7 +4,7 @@
 https://github.com/edvmorango/event-driven-messenger
 
 ## Stack 
-__(ZIO + sqs + doobie)__
+__(ZIO + zio-sqs + doobie)__
 
 
 ## Example message payload (will be replaced by __*AsyncApi*__ soon)
