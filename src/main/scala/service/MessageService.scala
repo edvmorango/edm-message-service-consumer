@@ -1,7 +1,6 @@
 package service
 
 import domain.MessageSent
-import effects.repository.MessageRepository
 import scalaz.zio.ZIO
 import service.Environment.UserMessageServiceEnvironment
 
@@ -12,13 +11,14 @@ trait MessageService[R] {
 }
 
 object MessageService extends MessageService[UserMessageServiceEnvironment] {
+
   def appendMessageSentEvent(message: MessageSent)
     : ZIO[UserMessageServiceEnvironment, Throwable, Unit] =
-    ZIO.access[MessageRepository] { env =>
+    ZIO.accessM[UserMessageServiceEnvironment] { env =>
       for {
         _ <- info("Preparing to insert MessageSent")
         _ <- env.messageRepository.insertMessageSent(message)
-        _ <- info("MessageSet inserted succesfully")
+        _ <- info("MessageSet inserted successfully")
       } yield ()
     }
 }
