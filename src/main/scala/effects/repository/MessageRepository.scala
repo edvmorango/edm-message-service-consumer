@@ -52,6 +52,7 @@ class MessageRepositoryDoobie(xa: Transactor[Task])
         |INSERT INTO user_message
         |(uuid, message, sender_uuid, peer_uuid, sender_payload, peer_payload, send_date, created_at, updated_at)
         | values (${UUID.fromString(message.uuid)},
+        |         ${message.message},
         |         ${UUID.fromString(message.sender.uuid)},
         |         ${UUID.fromString(message.peer.uuid)},
         |         ${message.sender.asJson},
