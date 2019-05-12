@@ -47,7 +47,7 @@ class MessageRepositoryDoobie(xa: Transactor[Task])
 
   def insertMessageSent(message: MessageSent): ZIO[Any, Throwable, Unit] = {
 
-    val query =
+    def query =
       sql"""
         |INSERT INTO user_message
         |(uuid, message, sender_uuid, peer_uuid, sender_payload, peer_payload, send_date, created_at, updated_at)
