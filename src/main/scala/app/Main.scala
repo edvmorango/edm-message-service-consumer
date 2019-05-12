@@ -3,6 +3,7 @@ package app
 import app.ApplicationEnvironment.AppEnvironment
 import config.ConfigLoader
 import scalaz.zio.ZSchedule
+import service.MessageService
 //import domain.MessageSent
 //import effects.consumer.SQSClient
 import event.SQSConsumerImpl
@@ -21,8 +22,8 @@ object Main extends App {
         .environment[AppEnvironment]
         .flatMap { _ =>
           new SQSConsumerImpl(cfg)
-            .messageSentConsumer(2)
-            .flatMap(m => ZIO(m.foreach(println(_))))
+            .messageSentConsumer(10)
+            .flatMap(MessageService.appendMessageSentEventsPar)
             .repeat(ZSchedule.forever)
         }
         .provideSome[Environment](ApplicationEnvironment.appEnv(cfg))

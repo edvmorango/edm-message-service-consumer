@@ -8,6 +8,9 @@ trait MessageService[R] {
 
   def appendMessageSentEvent(message: MessageSent): ZIO[R, Throwable, Unit]
 
+  def appendMessageSentEventsPar(
+      message: List[MessageSent]): ZIO[R, Throwable, Unit]
+
 }
 
 object MessageService extends MessageService[UserMessageServiceEnvironment] {
@@ -21,4 +24,14 @@ object MessageService extends MessageService[UserMessageServiceEnvironment] {
         _ <- info("MessageSet inserted successfully")
       } yield ()
     }
+
+  override def appendMessageSentEventsPar(message: List[MessageSent])
+    : ZIO[UserMessageServiceEnvironment, Throwable, Unit] = {
+
+    val effects = message.map(appendMessageSentEvent)
+
+    ZIO.collectAllPar(effects).map(_ => ())
+
+  }
+
 }
