@@ -12,7 +12,7 @@ __(ZIO + sqs + doobie)__
 ```
 {
     "uuid": "494a716b-43f9-4206-8611-a6092c11d9d9",
-    "message": "Sup man!",
+    "message": "ZIO is awesome!",
     "sender": {
         "uuid": "70de8194-0fd0-4c38-b52c-0a161c1f61c8",
         "name": "José E. Vieira M.",
