@@ -4,13 +4,9 @@ import app.ApplicationEnvironment.AppEnvironment
 import config.ConfigLoader
 import scalaz.zio.ZSchedule
 import service.MessageService
-//import domain.MessageSent
-//import effects.consumer.SQSClient
 import event.SQSConsumerImpl
 import scalaz.zio.console.putStrLn
 import scalaz.zio.{App, ZIO}
-//import service.MessageService
-//import zio.sqs.SqsStream
 
 object Main extends App {
 

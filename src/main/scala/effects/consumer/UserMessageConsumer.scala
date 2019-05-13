@@ -17,13 +17,3 @@ object UserMessageConsumer {
   }
 
 }
-
-//class UserMessageConsumerSNS(sqsClient: SqsAsyncClient)
-//    extends UserMessageConsumer.Effect {
-//
-//  def error(message: String): TaskR[Any, Unit] =
-//    ZIO.effectTotal(println(s"ERROR: $message"))
-//
-//  def info(message: String): TaskR[Any, Unit] =
-//    ZIO.effectTotal(println(s"INFO: $message"))
-//}
