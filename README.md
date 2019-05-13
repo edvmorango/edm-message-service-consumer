@@ -1,23 +1,30 @@
-The main idea of this project is to create example applications of how to solve real-world problems using *ZIO*.
+# edm-message-service-consumer
 
-Done: 
-  -  Restful APIs using *Http4s* (must be improved) 
-  - Unit Tests (must be improved)
-  - Http requests using *STTP*
-  - Message publishing using *SNS*
-  - *DynamoDB* as NoSQL database using *Scanamo*
+## More infos at:
+https://github.com/edvmorango/event-driven-messenger
 
-WIP:
-  - Typed errors through  ZIO[R,*E*,A]
-  - *SQS* queues being consumed by *zio-sqs*
-  - *PostsgreSQL* as event store using  *Doobie* or *Skunk* 
-
-TODOs: 
-  - Open API
-  - Asycn API
-  - Authentication (OAuth2)
-  - gRPC example
-  - Integration tests
+## Stack 
+__(ZIO + zio-sqs + doobie)__
 
 
-Architecture: 
+## Example message payload (will be replaced by __*AsyncApi*__ soon)
+
+```
+{
+    "uuid": "494a716b-43f9-4206-8611-a6092c11d9d9",
+    "message": "ZIO is awesome!",
+    "sender": {
+        "uuid": "70de8194-0fd0-4c38-b52c-0a161c1f61c8",
+        "name": "José E. Vieira M.",
+        "email": "sender@gmail.com",
+        "birthDate": "1996-06-10"
+    },
+    "peer": {
+        "uuid": "8851c3ce-5e47-4b3a-9557-b88e3c166a39",
+        "name": "J. Eduardo V. Morango",
+        "email": "peer@gmail.com",
+        "birthDate": "1996-06-10"
+    },
+    "sendDate": "2019-05-12T17:18:07.177468"
+}
+```
